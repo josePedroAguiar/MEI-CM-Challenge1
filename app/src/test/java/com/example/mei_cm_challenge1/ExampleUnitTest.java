@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.mei_cm_challenge1;
 
 import org.junit.Test;
 
