@@ -5,19 +5,17 @@ import android.widget.AdapterView;
 
 import androidx.lifecycle.ViewModel;
 
+import java.util.ArrayList;
+
+
 public class AnimalViewModel extends ViewModel {
-    // Define variables and methods to hold data for Fragment1
+    private ArrayList<Animal> animals;
 
-
-    private int selectedAnimalPosition;
-
-    public void setSelectedAnimalPosition(int position) {
-        selectedAnimalPosition = position;
+    public void setAnimals(ArrayList<Animal> animals) {
+        this.animals = animals;
     }
 
-    public int getSelectedAnimalPosition() {
-        return selectedAnimalPosition;
+    public ArrayList<Animal> getAnimals() {
+        return animals;
     }
-
-
 }

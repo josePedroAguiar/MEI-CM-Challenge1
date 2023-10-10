@@ -1,6 +1,8 @@
 package com.example.mei_cm_challenge1;
 
-public class Animal {
+import androidx.lifecycle.ViewModel;
+
+public class Animal extends ViewModel {
     private int id;
     private int imageResourceId;
     private String name;

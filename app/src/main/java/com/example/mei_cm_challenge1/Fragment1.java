@@ -76,7 +76,18 @@ public class Fragment1 extends Fragment {
         buttonSwitchToFragment2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Get the selected animal from the spinner
+                int selectedAnimalId = animals.get(spinner.getSelectedItemPosition()).getId();
+
+                // Create a Bundle to pass data to Fragment2
+                Bundle bundle = new Bundle();
+                bundle.putInt("animalId", selectedAnimalId);
+
+                // Create a Fragment2 instance and set the arguments
                 Fragment2 fragment2 = new Fragment2();
+                fragment2.setArguments(bundle);
+
+                // Navigate to Fragment2
                 getParentFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, fragment2)
                         .addToBackStack(null)
@@ -107,7 +118,6 @@ public class Fragment1 extends Fragment {
                 animalTextName.setTextSize(40);
                 animalTextName.setText(selectedAnimal.getName());
 
-                // Assuming animals is a List of Animal objects
 
 
                 // Set the image resource based on the selected animal
@@ -153,7 +163,7 @@ public class Fragment1 extends Fragment {
 
 
         animalViewModel = new ViewModelProvider(requireActivity()).get(AnimalViewModel.class);
-
+        animalViewModel.setAnimals(animals);
     }
 
 
